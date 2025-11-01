@@ -1,28 +1,46 @@
-# Draft-Oracle
+# Draft Oracle
 
-ReadMe still a work in progress :)
+<details>
+    <summary><strong>Table of Contents</strong></summary>
 
-## Table of Contents
+- [Draft Oracle](#draft-oracle)
+    - [Introduction](#introduction)
+    - [Considerations, Warnings, and Licensing](#considerations-warnings-and-licensing)
+  - [Project Overview](#project-overview)
+  - [Repository Structure](#repository-structure)
+  - [Analysis Summary](#analysis-summary)
+    - [Data Exploration Insights](#data-exploration-insights)
+    - [MLP Feature Sets](#mlp-feature-sets)
+    - [Model Performance](#model-performance)
+  - [Epilogue](#epilogue)
+    - [What I Learned](#what-i-learned)
+    - [Future Work](#future-work)
+    - [Tech Stack \& Dependencies](#tech-stack--dependencies)
+    - [Usage Pipeline](#usage-pipeline)
+    - [Author](#author)
 
-[Introduction](###introduction)  
-[Considerations, Warnings, and Licensing]()
+</details>
 
-###Introduction
+---
+
+### Introduction
 
 The goal of this project is to learn more about data science, and machine/deep learning.  
-With this in mind the topic I explored was whether or not it's possible to predict the win rate of a given team composition versus another in the pre-game lobby of a League of Legends game. By proxy determining inherit advantages or patterns in drafting a team.
+With this in mind the topic I explored was whether or not it's possible to predict the win rate of a given team composition versus another in the pre-game lobby of a League of Legends game. By proxy, determining inherit advantages or patterns in drafting a team.
 
 ### Considerations, Warnings, and Licensing
 
-Giving credit where credit is due, not all of this work is my own. This project is meant as a learning experience and not a piece entirely of my own creation, guidance was sought for on the internet. 
-Sources' information was often adapted, toyed with, broken, fixed, or manipulated; however, full attribution may not be complete.  
+Giving credit where credit is due, not all of this work is my own. This project is meant as a learning experience and not all the code in this repository was authored by me from scratch. 
+It was created with the assistance of online resources, tutorials, and AI language models (like ChatGPT and DeepSeek). Full attribution may not always be explicitly available.
+To the best of my ability and where possible, sources' information was adapted, toyed with, broken, fixed, and restructured.  
 I received assistance from multiple sources including but not limited to:  
 - "[*PyTorch for Deep Learning & Machine Learning - Full Course*](https://www.youtube.com/watch?v=V_xro1bcAuA)" on the freeCodeCamp.org youtube channel which is taught by Daniel Bourke
 - "[*PyTorch documentation — PyTorch 2.9 documentation*](https://docs.pytorch.org/docs/stable/index.html)"
 - "[*scikit-learn: machine learning in Python — scikit-learn 1.7.2 ...*](https://scikit-learn.org/stable/)"
   
 Links to the many unlisted sources of information and assistance come from random Google searches and generative AI models like OpenAI's ChatGPT-5 model and DeepSeek's DeepSeek-V3.2 model. If you wish to use any of the information, programs, or files I provide in this repository, 
-do so with the mindfulness of where this came from and make an effort to provide credit where you can. Otherwise, I'm not going to be creating any licensing aggreements, but anyone may use programs, or files within this repository as they see fit **as long as they follow any guidelines necessary** such as the ones set by Riot Games.  
+do so with the mindfulness of where this came from and make an effort to provide credit where you can. Otherwise, I'm not going to be creating any open-source licensing aggreements, but anyone may use information, programs, or files within this repository as they see fit **as long as they follow any guidelines necessary** such as the ones set by Riot Games.  
+
 Draft Oracle is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties
 
 ## Project Overview
@@ -31,6 +49,8 @@ Draft Oracle is not endorsed by Riot Games and does not reflect the views or opi
 - **Goal:** Find patterns and perform predictions on the win rate of a team using only the champion roles and subclasses
 - **Models Used:** Multi-Layer Perceptrons (MLP), PCA, KMeans, Silhouette scores, Elbow charts, several heatmaps, CramersV, and Mutual Information charts (MI)
 - **Insights:** Truth be told more work needs done, team composition clusters tend to fluctuate with more data although seem to converge on 4-5 major archetypes. Cluster v Cluster matchups show all round ~50% winrates making accurate predictions, beyond a coin toss, impossible
+
+---
 
 ## Repository Structure
 ```
@@ -61,7 +81,7 @@ Draft Oracle is not endorsed by Riot Games and does not reflect the views or opi
 │   ├── heatmap_winrate_Support.png
 │   ├── heatmap_winrate_Top.png
 │   └── mutual_info.csv
-├── matches_25_21.jsonl
+├── matches_25_21.jsonl  <-- The hunk of data itself
 ├── models/  <-- MLP models and training
 │   ├── best_models/  <-- Their home :)
 │   │   ├── best_A_model.pth
@@ -73,7 +93,7 @@ Draft Oracle is not endorsed by Riot Games and does not reflect the views or opi
 │   │   ├── MLP_C_X.npy
 │   │   ├── blue_pca_model.pkl
 │   │   ├── cluster_model.pkl
-│   │   ├── matches.jsonl
+│   │   ├── matches.jsonl <-- The hunk of data itself
 │   │   ├── pca_model.pkl
 │   │   ├── red_pca_model.pkl
 │   │   ├── subclass_enc.pkl
@@ -158,14 +178,14 @@ At the end of the day, this project was an excuse for me to learn about data sci
 
 ### Usage Pipeline
 ```bash
-python collector.py  <-- Collects matches using Riot API
-python deep_analysis.py  <-- Creates plots, charts, and tables for human analysis and visualization
-python models/process_data.py  <-- Processes data for MLP ingestion
-python models/split_data.py  <-- Splits processed data into train/valid/test directories 80/10/10
-python models/train_mlp.py  <-- Creates, trains, saves the MLPs
+python collector.py  #<-- Collects matches using Riot API
+python deep_analysis.py  #<-- Creates plots, charts, and tables for human analysis and visualization
+python models/process_data.py  #<-- Processes data for MLP ingestion
+python models/split_data.py  #<-- Splits processed data into train/valid/test directories 80/10/10
+python models/train_mlp.py  #<-- Creates, trains, saves the MLPs
 ```
 ---
 
 ### Author
 
-Me... aspiring software engineer studying at the University of Central Florida  
+Me... aspiring software engineer studying at the University of Central Florida
