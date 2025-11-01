@@ -6,7 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import roc_auc_score
 import warnings
 warnings.filterwarnings("ignore")
-os.environ["LOKY_MAX_CPU_COUNT"] = "8"  # silence loky Windows warning PLEASE IF YOU RUN THIS MAKE SURE YOU CAN RUN 8
+os.environ["LOKY_MAX_CPU_COUNT"] = "8"  # silence loky Windows warning - adjust to system capabilities
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 torch.manual_seed(42)
