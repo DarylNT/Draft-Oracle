@@ -8,7 +8,7 @@ from scipy.stats import chi2_contingency
 from datetime import datetime
 import warnings
 warnings.filterwarnings("ignore")
-os.environ["LOKY_MAX_CPU_COUNT"] = "8"  # silence loky Windows warning PLEASE IF YOU RUN THIS MAKE SURE YOU CAN RUN 8
+os.environ["LOKY_MAX_CPU_COUNT"] = "8"  # silence loky Windows warning - adjust to system capabilities
 sns.set_theme(style="whitegrid")
 
 INPUT = "matches_25_21.jsonl"
